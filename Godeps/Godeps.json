@@ -1,0 +1,150 @@
+{
+	"ImportPath": "github.com/jeffprestes/go-example-vps-locaweb",
+	"GoVersion": "go1.9",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "github.com/Unknwon/com",
+			"Comment": "v1-13-g7677a1d",
+			"Rev": "7677a1d7c1137cd3dd5ba7a076d0c898a1ef4520"
+		},
+		{
+			"ImportPath": "github.com/Unknwon/i18n",
+			"Rev": "39d6f2727e0698b1021ceb6a77c1801aa92e7d5d"
+		},
+		{
+			"ImportPath": "github.com/bradfitz/gomemcache/memcache",
+			"Comment": "release.r60-41-gfb1f79c",
+			"Rev": "fb1f79c6b65acda83063cbc69f6bba1522558bfc"
+		},
+		{
+			"ImportPath": "github.com/felipeweb/gopher-utils",
+			"Rev": "5043781e6c690223103fa297dd1a51a8839929ad"
+		},
+		{
+			"ImportPath": "github.com/go-floki/jade",
+			"Rev": "709925beb63a6eb71cb11403b71693fb5f206a29"
+		},
+		{
+			"ImportPath": "github.com/go-floki/jade/parser",
+			"Rev": "709925beb63a6eb71cb11403b71693fb5f206a29"
+		},
+		{
+			"ImportPath": "github.com/go-macaron/binding",
+			"Rev": "9440f336b443056c90d7d448a0a55ad8c7599880"
+		},
+		{
+			"ImportPath": "github.com/go-macaron/cache",
+			"Rev": "56173531277692bc2925924d51fda1cd0a6b8178"
+		},
+		{
+			"ImportPath": "github.com/go-macaron/cache/memcache",
+			"Rev": "56173531277692bc2925924d51fda1cd0a6b8178"
+		},
+		{
+			"ImportPath": "github.com/go-macaron/cache/redis",
+			"Rev": "56173531277692bc2925924d51fda1cd0a6b8178"
+		},
+		{
+			"ImportPath": "github.com/go-macaron/gzip",
+			"Rev": "cad1c6580a07c56f5f6bc52d66002a05985c5854"
+		},
+		{
+			"ImportPath": "github.com/go-macaron/i18n",
+			"Rev": "ef57533c3b0fc2d8581deda14937e52f11a203ab"
+		},
+		{
+			"ImportPath": "github.com/go-macaron/inject",
+			"Rev": "d8a0b8677191f4380287cfebd08e462217bac7ad"
+		},
+		{
+			"ImportPath": "github.com/go-macaron/jade",
+			"Rev": "65ef729dab628a7efd25e25977658d3c2e207e92"
+		},
+		{
+			"ImportPath": "github.com/go-macaron/session",
+			"Rev": "66031fcb37a0fff002a1f028eb0b3a815c78306b"
+		},
+		{
+			"ImportPath": "github.com/go-macaron/toolbox",
+			"Rev": "6766b8f16d1b135b250f09ba4dc4e24ab65b1107"
+		},
+		{
+			"ImportPath": "github.com/go-sql-driver/mysql",
+			"Comment": "v1.2-194-g7ebe0a5",
+			"Rev": "7ebe0a500653eeb1859664bed5e48dec1e164e73"
+		},
+		{
+			"ImportPath": "github.com/jmoiron/sqlx",
+			"Comment": "sqlx-v1.1-79-g05b81a7",
+			"Rev": "05b81a7d5d38058e42148dc01f17daf4acba4640"
+		},
+		{
+			"ImportPath": "github.com/jmoiron/sqlx/reflectx",
+			"Comment": "sqlx-v1.1-79-g05b81a7",
+			"Rev": "05b81a7d5d38058e42148dc01f17daf4acba4640"
+		},
+		{
+			"ImportPath": "github.com/klauspost/compress/flate",
+			"Comment": "v1.0-14-gd0763f1",
+			"Rev": "d0763f13d86e630f5d3ea9fa848a6ecc68255297"
+		},
+		{
+			"ImportPath": "github.com/klauspost/compress/gzip",
+			"Comment": "v1.0-14-gd0763f1",
+			"Rev": "d0763f13d86e630f5d3ea9fa848a6ecc68255297"
+		},
+		{
+			"ImportPath": "github.com/klauspost/cpuid",
+			"Comment": "v1.0",
+			"Rev": "09cded8978dc9e80714c4d85b0322337b0a1e5e0"
+		},
+		{
+			"ImportPath": "github.com/klauspost/crc32",
+			"Comment": "v1.0",
+			"Rev": "19b0b332c9e4516a6370a0456e6182c3b5036720"
+		},
+		{
+			"ImportPath": "github.com/lib/pq",
+			"Comment": "go1.0-cutoff-123-gae8357d",
+			"Rev": "ae8357db35d721c58dcdc911318b55bef6b1b001"
+		},
+		{
+			"ImportPath": "github.com/lib/pq/oid",
+			"Comment": "go1.0-cutoff-123-gae8357d",
+			"Rev": "ae8357db35d721c58dcdc911318b55bef6b1b001"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/pbkdf2",
+			"Rev": "ca7e7f10cb9fd9c1a6ff7f60436c086d73714180"
+		},
+		{
+			"ImportPath": "golang.org/x/text/internal/tag",
+			"Rev": "2bf8f2a19ec09c670e931282edfe6567f6be21c9"
+		},
+		{
+			"ImportPath": "golang.org/x/text/language",
+			"Rev": "2bf8f2a19ec09c670e931282edfe6567f6be21c9"
+		},
+		{
+			"ImportPath": "gopkg.in/bufio.v1",
+			"Comment": "v1",
+			"Rev": "567b2bfa514e796916c4747494d6ff5132a1dfce"
+		},
+		{
+			"ImportPath": "gopkg.in/ini.v1",
+			"Comment": "v1.21.1",
+			"Rev": "6e4869b434bd001f6983749881c7ead3545887d8"
+		},
+		{
+			"ImportPath": "gopkg.in/macaron.v1",
+			"Comment": "v1.2.2",
+			"Rev": "97f995df0bf34ca1a77c00704c9278476275566b"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v2",
+			"Comment": "v2.3.2",
+			"Rev": "e6179049628164864e6e84e973cfb56335748dea"
+		}
+	]
+}

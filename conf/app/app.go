@@ -1,0 +1,58 @@
+package app
+
+import (
+	mcache "github.com/go-macaron/cache"
+	"github.com/go-macaron/gzip"
+	"github.com/go-macaron/i18n"
+	"github.com/go-macaron/jade"
+	"github.com/go-macaron/session"
+	"github.com/go-macaron/toolbox"
+	"github.com/jeffprestes/go-example-vps-locaweb/conf"
+	"github.com/jeffprestes/go-example-vps-locaweb/handler"
+	"github.com/jeffprestes/go-example-vps-locaweb/lib/cache"
+	"github.com/jeffprestes/go-example-vps-locaweb/lib/context"
+	"github.com/jeffprestes/go-example-vps-locaweb/lib/cors"
+	"github.com/jeffprestes/go-example-vps-locaweb/lib/template"
+	"gopkg.in/macaron.v1"
+)
+
+// SetupMiddlewares
+func SetupMiddlewares(app *macaron.Macaron) {
+	app.Use(macaron.Logger())
+	app.Use(macaron.Recovery())
+	app.Use(gzip.Gziper())
+	app.Use(toolbox.Toolboxer(app, toolbox.Options{
+		HealthCheckers: []toolbox.HealthChecker{
+			new(handler.AppChecker),
+		},
+	}))
+	app.Use(macaron.Static("public"))
+	app.Use(i18n.I18n(i18n.Options{
+		Directory: "locale",
+		Langs:     []string{"pt-BR", "en-US"},
+		Names:     []string{"Português do Brasil", "American English"},
+	}))
+	app.Use(jade.Renderer(jade.Options{
+		Directory: "public/templates",
+		Funcs:     template.FuncMaps(),
+	}))
+	app.Use(macaron.Renderer(macaron.RenderOptions{
+		Directory: "public/templates",
+		Funcs:     template.FuncMaps(),
+	}))
+	app.Use(mcache.Cacher(
+		cache.Option(conf.Cfg.Section("").Key("cache_adapter").Value()),
+	))
+	app.Use(session.Sessioner())
+	app.Use(context.Contexter())
+	app.Use(cors.Cors())
+}
+
+// SetupRoutes
+func SetupRoutes(app *macaron.Macaron) {
+	app.Get("", func() string {
+		return "Mercurius Works!"
+	})
+
+	app.Get("/ola", handler.Ola)
+}
