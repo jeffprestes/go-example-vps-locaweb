@@ -30,7 +30,12 @@ func main() {
 	log.Println("|  |  |  | |  |____ |  |\\  \\----.|  `----.|  `--'  | |  |\\  \\----.|  | |  `--'  | .----)   |      | |_| |  _| (_) |")
 	log.Println("|__|  |__| |_______|| _| `._____| \\______| \\______/  | _| `._____||__|  \\______/  |_______/        \\___/  (__)___/ ")
 
-	app.Run(port())
+	port := port()
+	if port == 443 {
+		app.Run("0.0.0.0", port, getFullchainPemFilePath(), getPrivatekeyPemFilePath())
+		return
+	}
+	app.Run(port)
 }
 
 // configure http port
@@ -47,4 +52,14 @@ func port() int {
 	}
 
 	return port
+}
+
+func getFullchainPemFilePath() string {
+	fullchain := config.Cfg.Section("").Key("fullchain_path").String()
+	return fullchain
+}
+
+func getPrivatekeyPemFilePath() string {
+	privatekey := config.Cfg.Section("").Key("privatekey_path").String()
+	return privatekey
 }
