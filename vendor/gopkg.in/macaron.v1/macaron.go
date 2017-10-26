@@ -259,13 +259,12 @@ func (m *Macaron) Run(args ...interface{}) {
 	logger.Fatalln(http.ListenAndServe(addr, m))
 }
 
-// Run the http server with Let's Encrypt Cert automatically generated. Listening 443 by default.
+// RunWithAutoCert the http server with Let's Encrypt Cert automatically generated. Listening 443 by default.
 func (m *Macaron) RunWithAutoCert() {
 	host, port := GetDefaultListenInfo()
 	port = 433
 	addr := host + ":" + com.ToStr(port)
 	logger := m.GetVal(reflect.TypeOf(m.logger)).Interface().(*log.Logger)
-	logger.Printf("listening on %s (%s)\n", addr, safeEnv())
 	server := &http.Server{
 		Addr:    addr,
 		Handler: m.Router,
@@ -277,6 +276,7 @@ func (m *Macaron) RunWithAutoCert() {
 	server.TLSConfig = &tls.Config{
 		GetCertificate: certManager.GetCertificate,
 	}
+	logger.Printf("listening HTTPS on %s (%s)\n", addr, safeEnv())
 	logger.Fatalln(server.ListenAndServeTLS("", ""))
 }
 
