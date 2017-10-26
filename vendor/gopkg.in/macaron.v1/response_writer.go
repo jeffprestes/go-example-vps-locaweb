@@ -27,6 +27,7 @@ import (
 type ResponseWriter interface {
 	http.ResponseWriter
 	http.Flusher
+
 	// Status returns the status code of the response or 0 if the response has not been written.
 	Status() int
 	// Written returns whether or not the ResponseWriter has been written.
@@ -36,6 +37,8 @@ type ResponseWriter interface {
 	// Before allows for a function to be called before the ResponseWriter has been written to. This is
 	// useful for setting headers or any other operations that must happen before a response has been written.
 	Before(BeforeFunc)
+	//Push return HTTP/2 Pusher
+	Push() (http.Pusher, error)
 }
 
 // BeforeFunc is a function that is called before the ResponseWriter has been written to.
