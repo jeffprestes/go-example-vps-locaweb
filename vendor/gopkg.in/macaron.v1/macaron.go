@@ -18,6 +18,7 @@
 package macaron
 
 import (
+	"crypto/tls"
 	"io"
 	"log"
 	"net/http"
@@ -27,6 +28,7 @@ import (
 	"sync"
 
 	"github.com/Unknwon/com"
+	"golang.org/x/crypto/acme/autocert"
 	"gopkg.in/ini.v1"
 
 	"github.com/go-macaron/inject"
@@ -255,6 +257,27 @@ func (m *Macaron) Run(args ...interface{}) {
 	logger := m.GetVal(reflect.TypeOf(m.logger)).Interface().(*log.Logger)
 	logger.Printf("listening on %s (%s)\n", addr, safeEnv())
 	logger.Fatalln(http.ListenAndServe(addr, m))
+}
+
+// Run the http server with Let's Encrypt Cert automatically generated. Listening 443 by default.
+func (m *Macaron) RunWithAutoCert() {
+	host, port := GetDefaultListenInfo()
+	port = 433
+	addr := host + ":" + com.ToStr(port)
+	logger := m.GetVal(reflect.TypeOf(m.logger)).Interface().(*log.Logger)
+	logger.Printf("listening on %s (%s)\n", addr, safeEnv())
+	server := &http.Server{
+		Addr:    addr,
+		Handler: m.Router,
+	}
+	certManager := autocert.Manager{
+		Prompt: autocert.AcceptTOS,
+		Cache:  autocert.DirCache("certs"),
+	}
+	server.TLSConfig = &tls.Config{
+		GetCertificate: certManager.GetCertificate,
+	}
+	logger.Fatalln(server.ListenAndServeTLS("", ""))
 }
 
 // SetURLPrefix sets URL prefix of router layer, so that it support suburl.

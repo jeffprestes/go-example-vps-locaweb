@@ -115,8 +115,24 @@
 			"Rev": "ae8357db35d721c58dcdc911318b55bef6b1b001"
 		},
 		{
+			"ImportPath": "golang.org/x/crypto/acme",
+			"Rev": "ca7e7f10cb9fd9c1a6ff7f60436c086d73714180"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/acme/autocert",
+			"Rev": "ca7e7f10cb9fd9c1a6ff7f60436c086d73714180"
+		},
+		{
 			"ImportPath": "golang.org/x/crypto/pbkdf2",
 			"Rev": "ca7e7f10cb9fd9c1a6ff7f60436c086d73714180"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "02ac38e2528ff4adea90f184d71a3faa04b4b1b0"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context/ctxhttp",
+			"Rev": "02ac38e2528ff4adea90f184d71a3faa04b4b1b0"
 		},
 		{
 			"ImportPath": "golang.org/x/text/internal/tag",
