@@ -12,8 +12,8 @@ func HTTP2TemplateHandler(ctx *context.Context) {
 }
 
 func HTTP2Handler(ctx *context.Context) {
-	pusher, ok := ctx.Resp.(http.Pusher)
-	if !ok {
+	pusher, err := ctx.Resp.Push()
+	if err != nil {
 		ctx.PlainText(500, []byte("the ResponseWriter doesn't support the Pusher interface"))
 		return
 	}

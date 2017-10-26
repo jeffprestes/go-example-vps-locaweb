@@ -109,3 +109,11 @@ func (rw *responseWriter) Flush() {
 		flusher.Flush()
 	}
 }
+
+func (rw *responseWriter) Push() (http.Pusher, error) {
+	pusher, ok := rw.ResponseWriter.(http.Pusher)
+	if !ok {
+		return nil, fmt.Errorf("the ResponseWriter doesn't support the Pusher interface")
+	}
+	return pusher, nil
+}
