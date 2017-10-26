@@ -55,4 +55,5 @@ func SetupRoutes(app *macaron.Macaron) {
 	})
 
 	app.Get("/ola", handler.Ola)
+	app.Get("/http2", handler.HTTP2TestHandler)
 }
