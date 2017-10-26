@@ -32,7 +32,7 @@ func main() {
 
 	port := port()
 	if port == 443 {
-		app.Run("0.0.0.0", port, getFullchainPemFilePath(), getPrivatekeyPemFilePath())
+		app.RunWithAutoCert()
 		return
 	}
 	app.Run(port)
@@ -52,14 +52,4 @@ func port() int {
 	}
 
 	return port
-}
-
-func getFullchainPemFilePath() string {
-	fullchain := config.Cfg.Section("").Key("fullchain_path").String()
-	return fullchain
-}
-
-func getPrivatekeyPemFilePath() string {
-	privatekey := config.Cfg.Section("").Key("privatekey_path").String()
-	return privatekey
 }
