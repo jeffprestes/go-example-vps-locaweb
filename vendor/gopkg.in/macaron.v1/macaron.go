@@ -267,7 +267,7 @@ func (m *Macaron) RunWithAutoCert() {
 	logger := m.GetVal(reflect.TypeOf(m.logger)).Interface().(*log.Logger)
 	server := &http.Server{
 		Addr:    addr,
-		Handler: m.Router,
+		Handler: m,
 	}
 	certManager := autocert.Manager{
 		Prompt: autocert.AcceptTOS,
